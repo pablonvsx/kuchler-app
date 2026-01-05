@@ -25,7 +25,7 @@ from kivy.metrics import dp
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivymd.uix.dialog import MDDialog
-from kivymd.uix.button import MDFlatButton
+from kivymd.uix.button import MDFlatButton, MDRaisedButton
 import csv
 import os
 import webbrowser
@@ -97,12 +97,16 @@ class KuchlerInventoryApp(MDApp):
                 title='Sair do Aplicativo',
                 text='Deseja realmente sair do aplicativo?',
                 buttons=[
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='CANCELAR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.exit_dialog.dismiss()
                     ),
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='SAIR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.stop()
                     ),
                 ],
@@ -275,12 +279,16 @@ class KuchlerInventoryApp(MDApp):
                 title='Excluir Projeto',
                 text=f'Deseja realmente excluir o projeto "{project_name}"?\nTodos os dados serão perdidos.',
                 buttons=[
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='CANCELAR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.delete_project_dialog.dismiss()
                     ),
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='EXCLUIR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.delete_project(project_index, project_name)
                     ),
                 ],
@@ -314,8 +322,10 @@ class KuchlerInventoryApp(MDApp):
             title=title,
             text=message,
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text='OK',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: info_dialog.dismiss()
                 ),
             ],
@@ -554,12 +564,13 @@ class KuchlerInventoryApp(MDApp):
         """Mostra diálogo com guia rápido de uso da matriz."""
         help_text = (
             "ORIENTAÇÃO INICIAL:\n"
-            "Busque uma área de HOMOGENEIDADE da vegetação para realizar o registro. "
+            "\nBusque uma área de HOMOGENEIDADE da vegetação para realizar o registro. "
             "A parcela deve representar uma unidade fisionômica uniforme.\n\n"
             "GUIA RÁPIDO: INVENTÁRIO FISIONÔMICO\n\n"
-            "1. Registro: Comece pela altura mais elevada.\n"
-            "2. Cobertura: Insira os códigos (c, i, p, r, b, a).\n"
-            "Consulte a caderneta para mais detalhes."
+            "1. Estratos (linhas): Comece pela faixa altura mais elevada.\n"
+            "2. Forma de vida (colunas): Identifique as formas de vida presentes.\n"
+            "3. Cobertura (células): Selecione a faixa de cobertura para a forma de vida registrada.\n"
+            "\nConsulte a caderneta para mais detalhes."
         )
         
         help_dialog = MDDialog(
@@ -568,8 +579,19 @@ class KuchlerInventoryApp(MDApp):
             size_hint=(0.9, None),
             height=dp(400),
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
+                    text='ACESSAR CADERNETA',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
+                    on_release=lambda x: (
+                        self.open_url('https://www.even3.com.br/anais/biogeografia-icbb-iiicib-xiiiceb/870211-caderneta-de-campo-para-inventario-fisionomico/'),
+                        help_dialog.dismiss()
+                    )
+                ),
+                MDRaisedButton(
                     text='ENTENDI',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: help_dialog.dismiss()
                 ),
             ],
@@ -595,7 +617,6 @@ class KuchlerInventoryApp(MDApp):
     def select_matriz_cell(self, forma, altura):
         """Exibe diálogo para selecionar classe de cobertura de uma célula."""
         from kivymd.uix.boxlayout import MDBoxLayout
-        from kivymd.uix.button import MDRaisedButton
         
         # Cria layout para os botões
         content = MDBoxLayout(
@@ -620,6 +641,7 @@ class KuchlerInventoryApp(MDApp):
             btn = MDRaisedButton(
                 text=f"{cob} - {desc}",
                 size_hint_x=1,
+                elevation=0,
                 on_release=lambda x, c=cob: self.set_cobertura_cell(forma, altura, c)
             )
             content.add_widget(btn)
@@ -629,12 +651,16 @@ class KuchlerInventoryApp(MDApp):
             type="custom",
             content_cls=content,
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text='Limpar célula',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.clear_matriz_cell(forma, altura)
                 ),
-                MDFlatButton(
+                MDRaisedButton(
                     text='Cancelar',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.cobertura_dialog.dismiss()
                 ),
             ],
@@ -689,7 +715,6 @@ class KuchlerInventoryApp(MDApp):
     def select_folha_cell(self, altura):
         """Mostra diálogo para selecionar características de folhas."""
         from kivymd.uix.boxlayout import MDBoxLayout
-        from kivymd.uix.button import MDRaisedButton
         
         # Cria layout para os botões
         content = MDBoxLayout(
@@ -713,6 +738,7 @@ class KuchlerInventoryApp(MDApp):
             btn = MDRaisedButton(
                 text=desc,
                 size_hint_x=1,
+                elevation=0,
                 on_release=lambda x, f=fol: self.set_folha_cell(altura, f)
             )
             content.add_widget(btn)
@@ -722,12 +748,16 @@ class KuchlerInventoryApp(MDApp):
             type="custom",
             content_cls=content,
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text='Limpar célula',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.clear_folha_cell(altura)
                 ),
-                MDFlatButton(
+                MDRaisedButton(
                     text='Cancelar',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.folha_dialog.dismiss()
                 ),
             ],
@@ -822,12 +852,16 @@ class KuchlerInventoryApp(MDApp):
             title='Parcela Salva com Sucesso!',
             text=f'A parcela foi adicionada ao projeto "{project_name}".\nTotal de parcelas: {num_plots}',
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text='Ver Parcelas do Projeto',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.go_to_screen('view_project_screen', dialog)
                 ),
-                MDFlatButton(
+                MDRaisedButton(
                     text='Criar Nova Parcela',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: self.go_to_screen('new_plot_screen1', dialog)
                 ),
             ],
@@ -939,12 +973,16 @@ class KuchlerInventoryApp(MDApp):
                 title='Excluir Parcela',
                 text=f'Deseja realmente excluir a Parcela {plot_index + 1}?\nTodos os dados serão perdidos.',
                 buttons=[
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='CANCELAR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.delete_single_plot_dialog.dismiss()
                     ),
-                    MDFlatButton(
+                    MDRaisedButton(
                         text='EXCLUIR',
+                        md_bg_color=self.theme_cls.primary_color,
+                        elevation=0,
                         on_release=lambda x: self.delete_single_plot(plot_index)
                     ),
                 ],
@@ -1029,8 +1067,10 @@ class KuchlerInventoryApp(MDApp):
             title='Exportação Concluída',
             text=f'Projeto exportado com sucesso!\nArquivo: {filename}',
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text='OK',
+                    md_bg_color=self.theme_cls.primary_color,
+                    elevation=0,
                     on_release=lambda x: success_dialog.dismiss()
                 ),
             ],

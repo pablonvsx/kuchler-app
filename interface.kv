@@ -151,6 +151,7 @@ ScreenManager:
                     size_hint: (1, None)
                     height: dp(50)
                     md_bg_color: app.theme_cls.primary_color
+                    elevation: 0
                     on_release: app.save_new_project()
 <DeleteProjectScreen>:
     name: 'delete_project_screen'
@@ -335,6 +336,7 @@ ScreenManager:
                     size_hint: (1, None)
                     height: dp(50)
                     md_bg_color: app.theme_cls.primary_color
+                    elevation: 0
                     on_release: app.validate_and_save_plot_step1()
 
 <NewPlotScreen2>:
@@ -361,8 +363,8 @@ ScreenManager:
                 # Card da Legenda
                 MDCard:
                     orientation: 'vertical'
-                    padding: dp(12)
-                    spacing: dp(8)
+                    padding: dp(10)
+                    spacing: dp(4)
                     size_hint_y: None
                     height: self.minimum_height
                     elevation: 0
@@ -372,82 +374,42 @@ ScreenManager:
                         text: 'LEGENDA'
                         halign: "left"
                         theme_text_color: "Primary"
-                        font_style: "Subtitle1"
-                        bold: True
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    
-                    Widget:
-                        size_hint_y: None
-                        height: dp(8)
-                    
-                    MDLabel:
-                        text: 'Lenhosas:'
-                        halign: "left"
-                        theme_text_color: "Primary"
-                        font_style: "Body2"
+                        font_style: "Subtitle2"
                         bold: True
                         size_hint_y: None
                         height: self.texture_size[1]
                     
                     MDLabel:
-                        text: 'B = folhas sempreverdes; D = folhas decíduas; E = acículas sempreverdes; N = acículas decíduas; O = áfilas; S = semidecíduas (B+D); M = mistas (E+D)'
+                        text: 'Lenhosas: B = folhas sempreverdes | D = decíduas | E = acículas sempreverdes | N = acículas decíduas | O = áfilas | S = semidecíduas | M = mistas'
                         halign: "left"
                         theme_text_color: "Secondary"
                         font_style: "Caption"
                         size_hint_y: None
-                        height: self.texture_size[1] + dp(8)
+                        height: self.texture_size[1] + dp(2)
                     
                     MDLabel:
-                        text: 'Herbáceas:'
-                        halign: "left"
-                        theme_text_color: "Primary"
-                        font_style: "Body2"
-                        bold: True
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    
-                    MDLabel:
-                        text: 'G = graminoides; H = ervas comuns; L = musgos e líquens'
+                        text: 'Herbáceas: G = graminoides | H = ervas comuns | L = musgos e líquens'
                         halign: "left"
                         theme_text_color: "Secondary"
                         font_style: "Caption"
                         size_hint_y: None
-                        height: self.texture_size[1] + dp(8)
+                        height: self.texture_size[1] + dp(2)
                     
                     MDLabel:
-                        text: 'Especiais:'
-                        halign: "left"
-                        theme_text_color: "Primary"
-                        font_style: "Body2"
-                        bold: True
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    
-                    MDLabel:
-                        text: 'C = lianas; K = caule suculento; T = plantas tufadas; V = bambus; X = epífitas; F = folhas especiais'
+                        text: 'Especiais: C = lianas | K = caule suculento | T = tufadas | V = bambus | X = epífitas | F = folhas especiais'
                         halign: "left"
                         theme_text_color: "Secondary"
                         font_style: "Caption"
                         size_hint_y: None
-                        height: self.texture_size[1] + dp(8)
+                        height: self.texture_size[1] + dp(2)
                     
                     MDLabel:
-                        text: 'Classes de Cobertura:'
-                        halign: "left"
-                        theme_text_color: "Primary"
-                        font_style: "Body2"
-                        bold: True
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    
-                    MDLabel:
-                        text: 'c = contínua (>75%); i = interrompida (51-75%); p = porosa (26-50%); r = rara (6-25%); b = baixa (1-5%); a = ausente (<1%)'
+                        text: 'Cobertura: c = contínua (>75%) | i = interrompida (51-75%) | p = porosa (26-50%) | r = rara (6-25%) | b = baixa (1-5%) | a = ausente (<1%)'
                         halign: "left"
                         theme_text_color: "Secondary"
                         font_style: "Caption"
                         size_hint_y: None
-                        height: self.texture_size[1] + dp(8)
+                        height: self.texture_size[1] + dp(2)
                 
                 Widget:
                     size_hint_y: None
@@ -2160,6 +2122,7 @@ ScreenManager:
                     size_hint_y: None
                     height: dp(56)
                     md_bg_color: app.theme_cls.primary_color
+                    elevation: 0
                     font_size: "16sp"
                     on_release: app.finalize_and_save_plot()
                 
@@ -2508,6 +2471,7 @@ ScreenManager:
                         size_hint_y: None
                         height: dp(40)
                         md_bg_color: app.theme_cls.primary_color
+                        elevation: 0
                         on_release: app.open_url('https://www.even3.com.br/anais/biogeografia-icbb-iiicib-xiiiceb/870211-caderneta-de-campo-para-inventario-fisionomico/')
 
                 # Rodapé
