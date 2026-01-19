@@ -29,7 +29,7 @@ MANIFEST
 
 # PyInstaller
 *.manifest
-*.spec
+# *.spec  # Comentado para não ignorar buildozer.spec
 
 # Installer logs
 pip-log.txt
