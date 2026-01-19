@@ -13,10 +13,10 @@ package.domain = org.kuchlerapp
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,json
+source.include_exts = py, png, jpg, kv, json
 
 # (list) List of inclusions using pattern matching
-#source.include_patterns = assets/*,images/*.png
+source.include_patterns = modules/*, exports/*
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -36,7 +36,7 @@ version = 1.0.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.2.0,kivymd==1.1.1,pillow
+requirements = python3, kivy==2.2.0, kivymd==1.1.1, pillow, openssl
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -91,7 +91,7 @@ fullscreen = 0
 #android.presplash_lottie = "path/to/lottie/file.json"
 
 # (list) Permissions
-android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.permissions = INTERNET, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
