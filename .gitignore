@@ -138,8 +138,12 @@ desktop.ini
 *.pyc
 .buildozer/
 bin/
+*.apk
+*.aab
 
 # Application data
 data.json
-exports/
-*.csv
+exports/*.csv
+exports/*.xlsx
+*.tmp
+*.bak

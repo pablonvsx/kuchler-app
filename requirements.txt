@@ -1,14 +1,17 @@
 # Dependências do KuchlerApp - Inventário Fitofisionômico
 # Requer Python 3.10 ou superior
 
-# Framework UI
-kivymd>=1.1.1
-kivy>=2.2.0
+# Framework UI (versões fixas para Android)
+kivy==2.2.0
+kivymd==1.1.1
+pillow
 
-# Dependências do Kivy
-kivy-deps.sdl2>=0.6.0
-kivy-deps.glew>=0.3.1
-kivy-deps.angle>=0.3.3
+# Dependências do Kivy para Windows (somente desenvolvimento local)
+# Descomentar apenas se estiver desenvolvendo no Windows
+# kivy-deps.sdl2>=0.6.0
+# kivy-deps.glew>=0.3.1
+# kivy-deps.angle>=0.3.3
 
-# Build tools (opcional - para geração de executável)
-# pyinstaller>=5.13.0
+# Build tools para Android (usado pelo buildozer no Google Colab)
+# buildozer
+# cython

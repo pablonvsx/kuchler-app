@@ -12,7 +12,7 @@ setup(
     description="KuchlerApp - Aplicativo mobile para levantamento fitofisionômico utilizando o método de Küchler (1988)",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/seu-usuario/inventario-vegetal-kuchler",
+    url="https://github.com/pablonvsx/inventario-vegetal-kuchler",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
