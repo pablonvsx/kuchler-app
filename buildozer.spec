@@ -32,7 +32,7 @@ version = 1.0.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.10,kivy==2.2.1,kivymd==1.1.1,pillow
+requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow
 
 # (list) Garden requirements
 #garden_requirements =
@@ -54,10 +54,10 @@ orientation = portrait
 #
 
 # change the major version of python used by the app
-osx.python_version = 3.10
+osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 2.2.1
+osx.kivy_version = 2.3.0
 
 #
 # Android specific
@@ -113,7 +113,7 @@ android.logcat_filters = *:S python:D
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-p4a.branch = develop
+#p4a.branch = develop
 
 # (str) Bootstrap to use for android builds
 p4a.bootstrap = sdl2
